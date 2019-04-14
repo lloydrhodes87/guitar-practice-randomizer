@@ -193,8 +193,9 @@ export default {
       this.autoDisable = true;
     },
     clear() {
+      console.log("clearing");
       window.clearInterval(this.interval);
-      window.clearInterval(this.changeInterval);
+
       this.key = "";
       this.tonality = "";
       this.technique = "";
@@ -205,10 +206,14 @@ export default {
       this.techniques = [];
       this.tonalities = [];
       this.areas = [];
+      const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+      checkBoxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
     },
     stop() {
       window.clearInterval(this.interval);
-      window.clearInterval(this.changeInterval);
+
       this.autoDisable = false;
     },
     validate() {
